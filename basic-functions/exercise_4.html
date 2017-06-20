@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>Functions! (Four)</title>
+</head>
+<body>
+	<script>
+		// var greeting;
+
+		function sayHello(greeting, name) {
+			//name is a parameter, but greeting is a global variable
+			console.log(greeting + name);
+		}
+
+		// greeting = "Hello, ";
+		sayHello("Hello, ", "Dave");
+		// should print "Hello, Dave"
+
+		// greeting = "Whazzup, ";
+		sayHello("Whazzup, ", "Erty");
+		// should print "Whazzup, Erty"
+
+		// TODO: create your own greeting and name
+
+		// greeting = "Yo, ";
+		sayHello("Yo, ", "Scott");
+
+		// TODO: rewrite sayHello so that it takes greeting as a parameter instead of using a
+		// global variable.
+
+		// Hint: calling it will look like sayHello("Hello, ", "Dave");
+		</script>
+</body>
+</html>
