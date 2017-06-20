@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 3</title>
+</head>
+<body>
+  <h1>Problem 3</h1>
+  <p>Write a function which takes an array of integers > 0 and returns the first integer which does not appear in that array.</p>
+  <script>
+    
+    // Write a function which takes an array of integers > 0 and returns the first integer which does not appear in that array.
+    // [1,2,5] -> 3
+    // [1,2,3,4,5] -> 6
+    // [3,4,5] -> 1
+
+    function findFirstMissing(arr) { 
+      for (var i = 0; i < arr.length + 1; i++) {
+        if (arr[i] !== i + 1) {
+          return i + 1;
+        }
+      }
+    }
+
+    console.log(findFirstMissing([1,2,5]) === 3);
+    console.log(findFirstMissing([1,2,3,4,5]) === 6);
+    console.log(findFirstMissing([3,4,5]) === 1);
+
+  </script>
+</body>
+</html>

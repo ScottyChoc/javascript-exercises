@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 4</title>
+</head>
+<body>
+  <h1>Problem 4</h1>
+  <p>Write a function which takes an array of integers and returns an array with any duplicate integers removed.</p>
+  <script>
+    
+    // Write a function which takes an array of integers and returns an array with any duplicate integers removed.
+
+    // [1,1,2,3,1,2,3] -> [1,2,3]
+    // [1,4,4,4,2,2,4,4,4] -> [1,4,2]
+
+    var arr1 = [1,1,2,3,1,2,3];
+    var arr2 = [1,4,4,4,2,2,4,4,4];
+
+    function clean(arr) {
+      var newArr = [];
+      for (var i of arr) {
+        if (!newArr.includes(i)) {
+          newArr.push(i);
+        }
+      }
+      return newArr;
+    }
+
+    console.log(clean(arr1));
+    console.log(clean(arr2));
+
+  </script>
+</body>
+</html>

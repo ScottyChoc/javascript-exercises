@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		Below is a basic Point of Sale system that we might
+		see in a shop or restaurant. Some of the functions
+		aren't yet complete. Your job is to complete them
+		so we can sell items to customers!
+		*/
+
+		/*
+		First, let's set up some demo data for us
+		to use for testing
+		*/
+		var inventory = [
+			{
+				name: "Gumball",
+				price: 25,
+				quantity: 30,
+				id: 12333
+			},
+			{
+				name: "Chocolate Bar",
+				price: 100,
+				quantity: 40,
+				id: 34223
+			},
+			{
+				name: "Fancy Chocolate Bar",
+				price: 300,
+				quantity: 10,
+				id: 8932
+			}
+		];
+
+		var customers = [
+			{
+				name: "erty",
+				cart: [
+					12333,
+					12333,
+					34223
+				]
+			},
+			{
+				name: "sarah",
+				cart: [
+					8932,
+					12333
+				]
+			}
+		];
+
+		var totalMoneyMade = 32923;
+
+		/*
+			Todo: Complete the following functions
+		*/
+
+		function getItemByID(itemID) {
+			// todo: take in item id as a number
+			// and return a reference to that item
+			// in the inventory
+
+			// go through each item in the inventory
+			for (var item of inventory) {
+				// if that item's id is itemID, return the item
+				if (item.id === itemID) {
+					return item;
+				}
+			}
+		}
+
+		function getSubTotalForCustomer(customerObj) {
+
+			// todo: take in a reference to a customer object
+			// and return the total price of all the items
+			// in their cart
+
+			var sum = 0;
+			for (var item of customerObj.cart) {
+				sum = sum += getItemByID(item).price;
+			}
+			return sum;
+		}
+
+		console.log("get subtotal for customer 1: " + getSubTotalForCustomer(customers[0]));
+		console.log("get subtotal for customer 2: " + getSubTotalForCustomer(customers[1]));
+
+		function markItemSold(itemObj) {
+
+			// todo: take in an item reference, and update
+			// the new quantity of that item
+
+				itemObj.quantity = itemObj.quantity - 1;
+				return itemObj.quantity;
+		}
+
+		console.log("Remove 1 from inventory of item 1: " + markItemSold(inventory[0]));
+
+		function checkOutCustomer(customerObj) {
+
+			// todo: 
+			// take in a customer object, 
+			// compute the total cost of the things in their cart, 
+			// add that to the totalMoneyMade, 
+			totalMoneyMade += getSubTotalForCustomer(customerObj);
+			// update our inventory, and 
+			for (var item of customerObj.cart) {
+				markItemSold(getItemByID(item));
+			}
+			// empty that customer's cart
+			customerObj.cart = [];
+
+		}
+		checkOutCustomer(customers[0])
+		console.log("Check out customer 1:");
+		console.log("Total money made: " + totalMoneyMade);
+		console.log("New inventory (of item 1): " + inventory[0].quantity);
+		console.log("New cart: " + customers[0].cart);
+
+		function createNewCustomer(name) {
+			// todo: add a new customer to the system
+			// with an empty cart and name provided
+			// return a reference to that customer
+
+			var newCustomer = {
+				name: name,
+				cart: []
+			}
+			customers.push(newCustomer);
+			return newCustomer;
+		}
+
+		createNewCustomer("scott");
+		console.log("New customer: " + customers[2].name);
+
+		function createNewItem(name, price, id) {
+			// todo: add a new item to the system with
+			// the name, price, and id provided
+			// return a reference to that item
+
+			var newItem = {
+				name: name,
+				price: price,
+				id: id
+			}
+			inventory.push(newItem);
+			return newItem;
+		}
+		createNewItem("widget", 500, 12345); 
+		console.log("Created new item: " + inventory[inventory.length-1].name);
+		
+	</script>
+</body>
+</html>

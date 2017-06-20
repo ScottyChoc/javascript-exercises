@@ -1,0 +1,16 @@
+
+
+Techniques for remembering lots of code
+
+  write / draw on paper
+  Use some sort of autocomplete / code hint / code lint
+  Encapsulation -- Jump between levels of abstraction easily
+  Split thingd out into files, classes, etc
+  Use a well-known design pattern
+
+
+Oject-Oriented Programming
+
+  Encapsulation -- related code is close together
+  Polymorphism -- two different objects acting the same way
+  Inheritance -- Give objects prototypes to allow method reuse

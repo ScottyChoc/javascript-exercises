@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 5</title>
+</head>
+<body>
+  <h1>Problem 5</h1>
+  <p>Write function that translates a text to Pig Latin and back. English is translated to Pig Latin by taking the first letter of every word, moving it to the end of the word and adding "ay".</p>
+  <script>
+
+    // Write function that translates a text to Pig Latin and back. English is translated to Pig Latin by taking the first letter of every word, moving it to the end of the word and adding "ay".
+
+    // "The quick brown fox" -> "Hetay uickqay rownbay oxfay".
+
+    // (source: https://adriann.github.io/programming_problems.html)
+
+    function capitalize(word) { // capitalize the first letter of a word
+      var wordArr = word.split("");
+      var first = wordArr.shift();
+      wordArr.unshift(first.toUpperCase());
+      return wordArr.join("");
+    }
+
+    function wordToPigLatin(word) {
+      // debugger;
+      // split the word into an array of characters
+      var wordArr = word.split("");  
+      // pull out the first letter from the word array
+      var first = wordArr.shift();
+      // add it back in at the end of the word array, make sure it is lowercase
+      wordArr.push(first.toLowerCase());
+      // add "ay" to the end of the word array
+      wordArr.push("ay");
+      var newWord = wordArr.join("");
+      if (first === first.toUpperCase()) { 
+        return capitalize(newWord); // if the first letter of the word was uppercase, return the array as string and run it through the capitalize function
+      } else {
+        return newWord; // else return the array as a string
+      }
+    }
+
+    function strToPigLatin(str) {
+      var newArr = [];
+      str = str.split(" ");
+      for (var word of str) {
+        newArr.push(wordToPigLatin(word));
+      }
+      return newArr.join(" ");
+    }
+
+    console.log(strToPigLatin("The quick brown fox"));
+    console.log(strToPigLatin("The quick brown fox") === "Hetay uickqay rownbay oxfay");
+
+
+    function wordToEnglish(word) { 
+      debugger;
+      // split word into an array
+      var wordArr = word.split("");
+      // copy the first letter into a new variable
+      var first = wordArr.join("").slice(0,1);
+      // delete last 2 letters from word
+      var removed = wordArr.splice(wordArr.length - 2, 2);
+      // make new first letter than push the remaining letters of the word to it, whil lowercasing any capital letters
+      var newFirst = wordArr.splice(wordArr.length -1, 1);
+      for (var letter of wordArr) {
+        newFirst.push(letter.toLowerCase());
+      }
+      var newWord = newFirst.join("");
+      if (first === first.toUpperCase()) {
+        return capitalize(newWord); // if the first letter of the word was uppercase, return the array as string and run it through the capitalize function
+      } else {
+        return newWord; // else return the array as a string
+      }
+    }
+
+    function strToEnglish(str) {
+      // debugger;
+      var newArr = [];
+      str = str.split(" ");
+      for (var word of str) {
+        newArr.push(wordToEnglish(word));
+      }
+      return newArr.join(" ");
+    }
+
+    console.log(strToEnglish("Hetay uickqay rownbay oxfay"));
+    console.log(strToEnglish("Hetay uickqay rownbay oxfay") === "The quick brown fox");
+
+  </script>
+</body>
+</html>

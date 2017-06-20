@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Submitify</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="./index_front.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div id="project_template" style="display: none;">
+			<h3 class="project_name"></h3>
+			<p>Project ID: <span class="project_id"></span></p>
+			<p>Votes: <span class="project_votes"></span></p>
+			<p>Author: <span class="project_author"></span></p>
+			<p>Description: <span class="project_description"></span></p>
+			<button id="button_id">Vote for this project</button>
+		</div>
+		<div id="projects"></div>
+
+			<p>Name:</p>
+			<p><input id="new_project_name" value="I got an idea for a movie"></p>
+			<p>Description:</p>
+			<p><textarea id="new_project_description">Check it out, it's about a boy who gets his finger caught in a bottle of Mr. Pibb</textarea></p>
+			<p><button id="send_new_project">Submit Project</button></p>
+
+	</div>
+</body>
+</html>

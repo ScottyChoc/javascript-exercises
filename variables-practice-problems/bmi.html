@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMI - Variables Practice Problems</title>
+  <script>
+    
+    var userWeight = parseFloat(prompt("Enter your weight in lbs."));
+    var userHeight = parseFloat(prompt("Enter your height in inches"));
+
+    userWeight = userWeight / 2.2; // convert pounds to kilograms
+    userHeight = userHeight * 0.0254; // convert inches to meters
+
+
+    var bmi = (userWeight / (userHeight * userHeight)).toFixed(1);
+
+    alert("Your BMI is " + bmi + ", Get your shit together.");
+
+  </script>
+</head>
+<body>
+  <h1>BMI</h1>
+  <p><a href="index.html">Back to index.html</a></p>
+</body>
+</html>

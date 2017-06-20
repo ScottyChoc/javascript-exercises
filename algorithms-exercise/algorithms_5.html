@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem Five</title>
+</head>
+<body>
+  <h1>Reverse Number Guessing Game</h1>
+  <p>This game let's you choose how big the range of numbers is.  Open the console to see results</p>
+  <script>
+
+    //   Write a guessing game using looping and prompts!
+
+    // Have the user come up with a number between 1 and 100 (inclusive), but not enter it into the computer. Have the computer guess numbers in that same range, and ask the user if that is the number (e.g. “Is 40 your number?”). You can use prompt text (propmt("is 40 your number")) to accomplish this. If the number is too high, have the user enter “H”. If the number is too low, have the user enter “L”. If the computer guessed the number, have the user enter “Y”, and start a new game. Can you write an efficient algorithm so that the computer will find your number in the minimum number of guesses?
+
+    // set arr for all possibilities
+
+    var max = parseInt(prompt("Enter any number: ")); // So the player can input the max number of the range
+
+    if (max % 2 !== 0) {  // A hack so the game can still work if the user inputs an odd number
+      max = max -1;
+    }
+
+    var arr = [];  // Set an empty array
+    for (var i = 1; i <= max; i++) {
+      arr.push(i);  // Populate the array with all of the possible guesses
+    }
+      console.log(arr);  // for debugging
+
+      
+      var guessCount = 0; // Set the guess count to 0;
+      var guess = arr[(arr.length/2)];
+      var input = prompt("Think of a number between 1 and " + max + ". Got it? Ok, is your number " + guess + "?  Enter \"L\" for too low, \"H\" for too high, or \"Y\" for yes").toUpperCase();
+      guessCount++;
+
+
+      // else if h, cut upper half out of array and reset guess, promt again,
+
+      // else if l, cut lower half out of array and reset guess, promt again,
+
+
+      if (input === "Y" || input === "H" || input === "L") {
+
+        while (input !== "Y") {
+          if (input === "H") {
+            index = arr.indexOf(guess);
+            // console.log(index);
+            arr = arr.slice(0,index);
+            console.log(arr);
+            guess = arr[Math.floor(arr.length/2)];
+            input = prompt("Is your number " + guess + "?  Enter \"L\" for too low, \"H\" for too high, or \"Y\" for yes").toUpperCase();
+            guessCount++;
+
+          } else if (input === "L") {
+            index = arr.indexOf(guess);
+            // console.log(index);
+            arr = arr.slice(index, arr.length);
+            console.log(arr);
+            guess = arr[Math.floor(arr.length/2)];
+            input = prompt("Is your number " + guess + "?  Enter \"L\" for too low, \"H\" for too high, or \"Y\" for yes").toUpperCase();
+            guessCount++;
+        }
+      }
+      win = true;
+      console.log("I guessed " + guess + " in " + guessCount + " guesses!");
+
+    } else {
+
+    console.log("Invalid entry!");
+
+    }
+
+
+
+
+
+
+     
+  </script>
+</body>
+</html>

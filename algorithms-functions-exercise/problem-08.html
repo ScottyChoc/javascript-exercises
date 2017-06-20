@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 8</title>
+</head>
+<body>
+  <h1>Problem 8</h1>
+  <p>Write a function which takes no input and returns an array of 10 distinct randomly generated integers between 1 and 100.</p>
+  <script>
+    
+    // Write a function which takes no input and returns an array of 10 distinct randomly generated integers between 1 and 100.
+
+    // -> [48, 5, 32, 2, 10, 11, 34, 95, 82, 93] (good!)
+    // -> [1, 1, 24, 63, 45, 84, 17, 11, 59, 13] (bad - duplicated number)
+
+    function generateRandom(min,max) {
+      var arr = [];
+      if(max < 11) { // the machine will break if it doesn't have enough unique numbers to fill the array
+        max = 11;
+      }
+      while (arr.length < 10) {
+        // generate a random number
+        var random = Math.floor(Math.random() * (max - min) + min);
+        // if random number doesn't already exist in array, add it to array
+        if (arr.indexOf(random) === -1) {
+          arr.push(random);
+        } 
+      }
+      return arr;
+    }
+      
+    console.log(generateRandom(1,100));
+    
+  </script>
+</body>
+</html>

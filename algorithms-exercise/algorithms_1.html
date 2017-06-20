@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem One</title>
+</head>
+<body>
+<h1>String Reverser</h1>
+<p>Given a string, for example, “Hello World”, write some code to reverse that string (“dlroW olleH”).</p>
+<p>Open console to see results</p>
+  <script>
+
+  // Given a string, for example, “Hello World”, write some code to reverse that string (“dlroW olleH”).
+  // (Hint: try using the Array.reverse() method! But, if you do, try solving it just using looping as well).
+
+    var str = prompt("Write some text into the magic reverser:");
+    var arr = str.split("");
+    
+    // Array.reverse() method
+    arr.reverse();
+    console.log("arr.reverse() method: " + (arr = arr.join("")));
+
+    // Looping method
+    var arr = str.split("");
+    var i = 0;
+    var reversed = [];
+
+    while (i < str.length) {
+      reversed += arr.pop();
+      i += 1;
+    }
+    console.log("Looping method: " + reversed);
+
+  </script>
+</body>
+</html>

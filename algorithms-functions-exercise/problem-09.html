@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 9</title>
+</head>
+<body>
+  <h1>Problem 9</h1>
+  <p>Write a function which takes two sorted lists and merges them into a new sorted list.</p>
+  <script>
+    
+    // Write a function which takes two sorted lists and merges them into a new sorted list.
+
+    // [1,2,5,6,9], [3,4,5,10] -> [1,2,3,4,5,5,6,10]
+    // [], [] -> []
+    // [-1, 0, 1], [-2, 2] -> [-2, -1, 0, 1, 2]
+
+    // (Source: https://adriann.github.io/programming_problems.html)
+
+    function compareNumbers(a, b) {
+      return a - b;
+    }
+
+    function mergeLists(arr1, arr2) {
+      var newArr = [];
+      newArr = arr1.concat(arr2).sort(compareNumbers);
+      return newArr
+    }
+
+    console.log(mergeLists([1,2,5,6,9], [3,4,5,10]));
+    console.log(mergeLists([], []));
+    console.log(mergeLists([-1, 0, 1], [-2, 2]));
+
+  </script>
+</body>
+</html>

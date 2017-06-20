@@ -1,0 +1,16 @@
+.sassy-template {
+  margin: 2em;
+  padding: 1em;
+  border: 1px solid black;
+  max-width: 400px;
+}
+
+.sassy-template img {
+  float: left;
+  width: 60px;
+  display: block;
+}
+
+.short {
+  width: 4em;
+}

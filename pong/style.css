@@ -1,0 +1,119 @@
+body {
+  background-image: url("img/space.jpg");
+  padding: 0;
+  margin: 0;
+  font-family: 'VT323', monospace;
+  /*http://www.wallpaperup.com/540450/space_universe_galaxy_cosmos_astronomy_planet_star_colors_colorful_sky_nature_planets_stars_galaxies.html */
+}
+
+.game {
+  width: 800px;
+  height: 600px;
+  background-color: rgba(0,0,0,.25);
+  position: relative;
+  margin: 0 auto;
+  margin-top: calc((100vh/2) - (500px/2));
+  border-radius: 3px;
+  box-shadow: 0 0 60px rgba(200,250,250,.25);
+}
+
+.paddle {
+  background: url(img/tech.jpg) top center no-repeat;
+  width: 20px;
+  height: 100px;
+  background-color: white;
+  position: absolute;
+  border-radius: 3px;
+}
+
+.ball {
+  background: url(img/ball.png) top center no-repeat;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  animation: spin 4s linear infinite;
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  100% {transform: rotate(1turn); }
+}}
+
+.border {
+  display: block;
+  width:395px;
+  height: 100%;
+  border-right: 10px dashed white;
+}
+
+.tech {
+  background: url(img/tech.jpg) top left repeat-x;
+  position: relative;
+  width: 820px;
+  height: 90px;
+  top: -85px;
+  left: -10px;
+  z-index: -100px;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(200,250,250,.75);
+  }
+
+.left_score_box {
+  position: absolute;
+  width: 100px;
+  height: 72px;
+  top: -72px;
+  left: 10px;
+  color: white;
+  font-size: 72px;
+  text-align: center;
+  background-color: rgba(0,0,0,1);
+  z-index: 100;
+  box-shadow: 0 -2px 6px #000;
+}
+
+.right_score_box {
+  position: absolute;
+  width: 100px;
+  height: 72px;
+  top: -72px;
+  left: 690px;
+  color: white;
+  font-size: 72px;
+  text-align: center;
+  background-color: rgba(0,0,0,1);
+  z-index: -100px;
+  box-shadow: 0 -2px 6px #000;
+}
+
+.rally {
+  position: absolute;
+  width: 580px;
+  height: 60px;
+  top: -72px;
+  left: 110px;
+  color: white;
+  font-size: 54px;
+  text-align: center;
+  background-color: rgba(0,0,0,1);
+  z-index: -100px;
+  box-shadow: 0 -2px 6px #000;
+}
+
+.sco
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

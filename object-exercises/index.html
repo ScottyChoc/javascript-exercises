@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OOP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Introduction to Object Oriented Programming!</h1>
+  <small>Instructions are in the code! How exciting!</small>
+  <div id="paragraphs" class="robot"></div>
+  
+  <script>
+
+    // Finish the Following constructor
+    function Sentence(wordsArray) {
+      this.wordsArray = wordsArray;
+      
+      this.getWordCount = function() {
+      //find the amount of words in the sentence
+        return wordsArray.length;
+      }
+      
+      this.getLetterCount = function() {
+      //find the amount of letters in the sentence
+        var newWordsArray = [];
+        for (var i in wordsArray) {
+          if (i == wordsArray.length - 1) {
+            newWordsArray.push(wordsArray[i]);
+          } else {
+            newWordsArray.push(wordsArray[i] + " ");
+          }
+        }
+        return newWordsArray.join("").length;
+      }
+      
+      this.reverse = function() {
+      //reverse the sentence
+        var newWordsArray = [];
+        for (var i in wordsArray) {
+          newWordsArray.unshift(wordsArray[i]);
+        }
+        wordsArray = newWordsArray;
+      }
+      
+      this.getWordAt = function(i) {
+      //return the word at index i
+      return wordsArray[i];
+      }
+    }
+    
+    /* Some Tests. Make them all pass! */
+    var s = new Sentence(["Hello", "I", "Am", "Computer"]);
+    console.log(s.getWordCount() == 4);
+    console.log(s.getLetterCount() == 19); //remember spaces!
+    console.log(s.getWordAt(0) == "Hello");
+    s.reverse();
+    console.log(s.getWordAt(0) == "Computer");
+    
+    function Paragraph(sentencesArray) {
+      this.sentencesArray = sentencesArray;
+
+      this.getWordCount = function() {
+        var wordTotal = 0;
+        for (var arr of sentencesArray) {
+          wordTotal += arr.getWordCount();
+        }
+        return wordTotal;
+      }
+
+      this.getLetterCount = function() {
+        var letterTotal = 0;
+        for (var arr in sentencesArray) {
+          if (arr == sentencesArray.length - 1) {
+            letterTotal += sentencesArray[arr].getLetterCount();
+          } else {
+            letterTotal += sentencesArray[arr].getLetterCount() + 1;
+          }
+        }
+        return letterTotal;
+      }
+
+      this.getWordAt = function(num) {
+        var newArray = [];
+        for (var i = 0; i < sentencesArray.length; i++) {
+          for (var j = 0; j < sentencesArray[i].wordsArray.length; j++) {
+            newArray.push(sentencesArray[i].wordsArray[j]); 
+          }
+        }
+        return newArray[num];
+      }
+
+      this.getSentenceCount = function() {
+        return sentencesArray.length;
+      }
+
+      this.addToHTML = function(id) {
+        var str = "";
+        var arr = [];
+        for (var i = 0; i < sentencesArray.length; i++) {
+          for (var j = 0; j < sentencesArray[i].wordsArray.length; j++) {
+            arr.push(sentencesArray[i].wordsArray[j]); 
+          }
+        }
+        str = arr.join(" ");
+        document.getElementById(id).innerHTML = str;
+      }
+    }
+
+    var s2 = new Sentence (["I", "am", "not", "a", "human"]);
+    p = new Paragraph([s, s2]);
+
+    console.log(p.getWordCount());
+    console.log(p.getLetterCount());
+    console.log(p.getWordAt(8));
+    console.log(p.getSentenceCount());
+    p.addToHTML("paragraphs");
+
+    /*
+     
+     Create a new constructor function for a Paragraph
+
+     You should be able to
+      var s2 = new Sentence (["I", "am", "not", "a", "human"]);
+      p = new Paragraph([s, s2]);
+     
+     Implement the following:
+      p.getWordCount()
+      p.getLetterCount()
+      p.getWordAt(10)
+      p.getSentenceCount()
+      p.addToHTML("paragraphs")
+      
+    */
+    
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

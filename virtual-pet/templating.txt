@@ -1,0 +1,9 @@
+create html template with id and hide it with css
+
+clone element with jquery, 
+
+remove id, 
+
+add unique class, 
+
+change display to show template

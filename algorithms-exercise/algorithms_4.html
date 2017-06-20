@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem Four</title>
+</head>
+<body>
+<h1>Number to String with dashes</h1>
+<p>Open console to see results</p>
+  <script>
+
+    // Write a JavaScript program which prompts the user for a number and console.logs that number as a string with dashes (-) between each two odd digits. 
+
+    // For example if the user types 0253697 the output should be “025-369-7”.
+
+    var num = prompt("Enter a number");
+    var dashed = [];
+
+    // console.log(num); // for debugging
+
+    if (isNaN(num)) {
+      prompt("Oops! Please enter a number");
+
+    } else {
+   
+    // convert num to array
+
+    var arr = num.split("");
+
+    // console.log(arr); // for debugging
+
+    // push array items into a new array. If an item and it's successor are odd, push a "-" after the item.
+
+    for (var i = 0; i < arr.length; i++) {
+
+      dashed.push(arr[i]);
+
+      if (!(arr[i] % 2 ===0) && !(arr[i+1] % 2 === 0) 
+        && !isNaN(arr[i+1]))  { // make sure we don't add a "-" to the end of the string
+        dashed.push("-");
+
+      }
+    }
+
+    // console.log(dashed); // for debugging
+
+    dashed = dashed.join("");
+    console.log(dashed); 
+
+    }
+
+  </script>
+</body>
+</html>

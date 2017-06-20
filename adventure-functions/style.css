@@ -1,0 +1,34 @@
+body {
+  background-image: url("img/dragonslair.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Germania One', cursive;
+}
+
+.container {
+  width: 65%;
+  margin: 0 auto;
+}
+
+body p {
+  font-size: 36px;
+  color: #dbcec1;
+  text-align: center;
+  text-shadow: 0 4px 4px #191951;
+  margin-bottom: -.25em;
+}
+
+button {
+  font-family: 'Germania One', cursive;
+  padding: .25em;
+  background-color: #e3391a;
+  color: #dbcec1;
+  font-size: 1.25em;
+  border: .25em solid #f69326;
+  margin: 0 auto;
+  display: block;
+}
+
+button:focus {
+  outline: 0;
+}

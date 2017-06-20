@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem Six</title>
+  <style>
+    body {
+      background-image: url("img/dragon.jpg");
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <script>
+
+//   Write a short adventure game.
+
+// In the style of Colossal Cave Adventure, write a three-room adventure game. The user should start in one room: “You are in a room. There is an exit to the north and to the west”. Try using the prompt text for output (prompt ("you are in a room..."))
+
+// The user will type an instruction into the prompt (e.g. “go north”). Figure out what the user wants to do (“go north” or “go west”) and follow that instruction.
+
+// Put a dragon in the north room and a shield in the west room. They must get the shield (“get shield” in the west room) to get past the dragon. The west room has an exit to the east (the starting room) and the north room has an exit to the north and south (the win condition and the starting room).
+
+// When they get past the dragon (“go north” in the north room while holding the shield), they win the game.
+
+// If you are feeling adventurous, try adding even more rooms, items, and challenges to this game!
+
+// Create Rooms
+
+var rooms = ["Starting Room", "North Room", "West Room", "East Room", "Treasure Room"];
+
+// Set starting parameters
+
+var isInRoom = rooms[0];
+var hasShield = false;
+var hasTorch = false;
+var win = false;
+var ask = "What do you want to do?";
+var help = "You can't do that. Try saying something like \"go south\", or \"pickup\"";
+
+function startGame() {
+  startingRoom(); // Set the room to start in
+}
+
+function startingRoom() {
+  while (isInRoom = rooms[0] && !win) {
+    var input = prompt("You are in the starting room. There is a door to the west, a door to the north, and a door to the east. " + ask).toUpperCase();
+    if ( input === "GO NORTH") {
+      northRoom();
+    } else if  (input === "GO WEST") {
+      westRoom();
+    } else if  (input === "GO EAST") {
+      eastRoom();
+    } else {
+      input = alert(help);
+    }
+  }
+}
+
+function westRoom() {
+  while (isInRoom = rooms[2] && !win) {
+    if (hasTorch) {
+      if (hasShield) {
+        input = prompt("You are in the west room. " + ask).toUpperCase();
+      } else {
+        input = prompt("You are in the west room.  There is a shield in front of you. " + ask).toUpperCase();
+      }
+
+      if (input === "PICKUP") {
+        pickupShield();
+      } else if (input === "GO EAST") {
+        startingRoom();
+      } else {
+        alert(help);
+      }
+    } else {
+      input = prompt("You are in the west room. It's to dark to see in here, Perhaps you should shed some light on the situation. " + ask).toUpperCase();
+      if (input === "GO EAST") {
+        startingRoom();
+      } else {
+       input = alert(help);
+      }
+    }
+  }
+}
+
+function eastRoom() {
+  while(isInRoom = rooms[3] && !win) {
+    if (hasTorch) {
+      input = prompt("You are in the east room. " + ask).toUpperCase();
+    } else {
+      input = prompt("You are in the east room, there is a torch in front of you " + ask).toUpperCase();
+    }
+    if (input === "PICKUP") {
+      pickupTorch();
+    } else if (input  === "GO WEST") {
+      startingRoom();
+    } else {
+      alert(help);
+    }
+  }
+}
+
+function northRoom() {
+  while (isInRoom = rooms[1] && !win) {
+      input = prompt("You are in the north room.  There is a door to the north, but to get to it you must pass a giant fire-breathing dragon! " + ask).toUpperCase();
+    if (input === "GO NORTH") {
+      if (hasShield) {
+        treasureRoom();
+      } else {
+        alert("The dragon is too powerful!  You will need some kind of protection to get past it");
+      }
+    } else if (input === "GO SOUTH") {
+      startingRoom();
+    } else {
+      alert(help);
+    }
+  }
+}
+
+function pickupShield() {
+  hasShield = true;
+  alert("You picked up the shield!");
+}
+
+function pickupTorch() {
+  hasTorch = true;
+  alert("You picked up the torch!");
+}
+
+function treasureRoom() {
+    isInRoom = rooms[4];
+    alert("You made it past the dragon and into the treasure room, you win!!!!");
+    win = true;
+}
+
+
+setTimeout(startGame, 500);
+
+  </script>
+</body>
+</html>
