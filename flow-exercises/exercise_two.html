@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript | Flow | Two</title>
+    <style>
+        .container {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+        /*
+            Gets us the current hour of the day (24-hour format) as a number from 0 - 23.
+        */
+        var hourOfDay = new Date().getHours();
+        
+        /*
+            Gives us the body element of the document.
+        */
+        var body = document.getElementsByTagName("body")[0];
+                
+        if (hourOfDay < 6) {
+            body.style.backgroundColor = "darkblue";
+        } else if (hourOfDay < 12) {
+            body.style.background = "linear-gradient(purple, orange)";
+        } else if (hourOfDay < 18) {
+            body.style.background = "linear-gradient(darkblue, lightblue)";
+        } else if (hourOfDay < 21) {
+            body.style.background = "linear-gradient(purple, orange)";
+        } else {
+            body.style.backgroundColor = "midnightblue";
+        }
+        
+    </script>
+    <div class="container"></div>
+</body>
+</html>

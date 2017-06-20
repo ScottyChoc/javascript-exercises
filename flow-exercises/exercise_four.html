@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript | Flow | Four</title>
+</head>
+<body>
+    <script>
+        /*
+            Calvinball (http://www.picpak.net/calvin/oldsite/images/oogy.gif) is a game with a very complicated scoring system. Your job is to write a piece of code which determines the winner of a game.
+            
+            Provided below are three different player's scores. Uncomment one at a time to calculate the score for that player.
+            
+            Calvinball Rules:
+                1. A player's score is equal to 500 if their score is not already a number. (this is implemented below).
+                
+                2. A player's score is reduced by 300 if they are crying. Otherwise it is increased by 50.
+                
+                3. A player's score is reduced by 77 if their last play was "Q"
+                
+                4. A player gets an extra 395 points if they are in a tree, unless their last play was a number.
+                
+                5. A player's score is doubled if they are holding the broom handle, but it is tripled if they have the broom brush. Otherwise the player's score is halved.
+                
+                6. A player's score is multiplied by 1.5 if they are carrying the ball but only if they are not in a tree. Disregard this rule if the player is crying.
+                
+                7. If the player's last play was a number (not a letter), the player's score is multiplied by that amount.
+        */
+        
+        
+        //Player One
+        // var score = 193;
+        // var last_play = "Q";
+        // var broom = "handle";
+        // var has_ball = false;
+        // var is_in_tree = false;
+        // var crying = false;
+        // Player's final score is 332!
+        
+        
+        //Player Two
+        // var score = 394;
+        // var last_play = "W";
+        // var broom = "none";
+        // var has_ball = true;
+        // var is_in_tree = true;
+        // var crying = false;
+        // Player's final score is 419.5!
+        
+        
+        //Player Three
+        var score = "f";
+        var last_play = 1.5;
+        var broom = "brush";
+        var has_ball = true;
+        var is_in_tree = false;
+        var crying = true;
+        // Player's final score is 900!
+        
+
+        console.log("Player finished the game with a score of " + score + ".");        
+
+        if (typeof(score) != "number") {
+            score = 500;
+            console.log("Set player's score to 500 because it was not a number. New score is " + score);
+        } 
+
+        if (crying === true) {
+            score = score - 300;
+            console.log("Subtracted 300 points because the player is a crybaby. New score is " + score);            
+        } else {
+            score = score + 50;
+            console.log("Added 50 points because the player is emotionally tough. New score is " + score);
+        }
+        
+        if (last_play === "Q") {
+            score = score - 77;
+            console.log("Subtracted 77 points because this nerd's last play was Q. New score is " + score);
+        }
+
+        if (is_in_tree === true && typeof(last_play) != "number") {
+            score = score + 395;
+            console.log("Added 395 points because this player's last play wasn't a number and she ended up in a tree. New score is " + score);
+        }
+
+        if (broom === "brush") {
+            score = score * 3;
+            console.log("Holding the brush! x3 baby!!! New score is " + score);
+        }
+
+        if (broom === "handle") {
+            score = score * 2;
+            console.log("Doubled score with the ol' broom handle. New score is " + score);
+        }
+
+        if (broom != "brush" && broom != "handle") {
+            score = score / 2;
+            console.log("Aint got a broom? Score gets cut in half. New score is " + score);
+        }
+
+        if (crying === false && is_in_tree === false && has_ball === true) {
+            score = score * 1.5;
+            console.log("Standing on the ground with the ball will get you 1.5x more points if you aint cryin'. New score is " + score);
+        }
+
+        if (typeof(last_play) === "number") {
+            score = score * last_play;
+            console.log("multiply that score by the last play as long as it's a number. New score is " + score);
+        }
+            console.log("Player's final score is " + score + "!");
+
+        // First place: Player 3 with 900 points
+        // Second place: Player 2 with 419.5 points
+        // Third place: Player 1 with 332 points
+
+    </script>
+<img src="img/console.png" alt="">
+
+</body>
+</html>
