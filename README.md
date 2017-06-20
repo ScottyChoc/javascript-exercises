@@ -1,3 +1,3 @@
 # JavaScript Exercises
 
-Wrangling all of my JavaScript into 1 repo
+Wrangling all of my JavaScript exercises into 1 repo.
